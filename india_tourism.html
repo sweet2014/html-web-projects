@@ -1,37 +1,538 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>Home</title>
-        <link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">     
-        <link href="https://fonts.googleapis.com/icon?family=Material+icons" rel="stylesheet">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Explore the incredible beauty and diversity of India - Book your dream vacation">
+        <title>India Tourism - Discover Incredible India</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
         <style>
-        h1
-{
-    font:40px 'Ariel Black';
-        color: rgba(7,196,64,0.8);
-       text-align:   center;
-       text-decoration: underline;
-       text-transform: uppercase;
-       letter-spacing: 3px;
-       line-height: 1.1;
-       word-spacing: 20;
-       text-shadow: 5px,6px,8px;
-       
-      
-      
-            
-                border: 4px;
+            /* CSS Reset & Mobile-First Base Styles */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            :root {
+                --primary-color: #FF9933;
+                --secondary-color: #138808;
+                --accent-color: #000080;
+                --text-dark: #2c3e50;
+                --text-light: #ffffff;
+                --bg-light: #f8f9fa;
+                --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+            }
+
+            body {
+                font-family: 'Poppins', sans-serif;
+                color: var(--text-dark);
+                line-height: 1.6;
+                overflow-x: hidden;
+            }
+
+            /* Navigation - Mobile First */
+            nav {
+                background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+                padding: 1rem;
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+                box-shadow: var(--shadow);
+            }
+
+            .nav-container {
+                max-width: 1200px;
+                margin: 0 auto;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: var(--text-light);
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .nav-links {
+                display: flex;
+                list-style: none;
+                gap: 1rem;
+                flex-wrap: wrap;
+                margin-top: 1rem;
+                width: 100%;
+            }
+
+            .nav-links a {
+                color: var(--text-light);
+                text-decoration: none;
+                padding: 0.5rem 1rem;
+                border-radius: 5px;
+                transition: all 0.3s ease;
+                font-weight: 500;
+            }
+
+            .nav-links a:hover,
+            .nav-links a:focus {
+                background: rgba(255, 255, 255, 0.2);
+                transform: translateY(-2px);
+            }
+
+            /* Hero Section - Mobile First */
+            .hero {
+                background: linear-gradient(135deg, rgba(255, 153, 51, 0.9), rgba(19, 136, 8, 0.9)),
+                            url('https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=1200') center/cover;
+                color: var(--text-light);
+                text-align: center;
+                padding: 3rem 1rem;
+                min-height: 60vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .hero h1 {
+                font-family: 'Playfair Display', serif;
+                font-size: 2rem;
+                margin-bottom: 1rem;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+                animation: fadeInDown 1s ease;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+                max-width: 600px;
+                animation: fadeInUp 1s ease 0.3s both;
+            }
+
+            .cta-button {
+                background: var(--text-light);
+                color: var(--primary-color);
+                padding: 1rem 2rem;
+                border: none;
+                border-radius: 50px;
+                font-size: 1rem;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                box-shadow: var(--shadow);
+                animation: fadeInUp 1s ease 0.6s both;
+                text-decoration: none;
+                display: inline-block;
+            }
+
+            .cta-button:hover,
+            .cta-button:focus {
+                transform: translateY(-3px);
+                box-shadow: var(--shadow-lg);
+                background: var(--secondary-color);
+                color: var(--text-light);
+            }
+
+            /* Features Section - Mobile First */
+            .features {
+                padding: 2rem 1rem;
+                background: var(--bg-light);
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            .section-title {
+                text-align: center;
+                font-size: 1.75rem;
+                margin-bottom: 2rem;
+                color: var(--text-dark);
+                font-family: 'Playfair Display', serif;
+            }
+
+            .features-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .feature-card {
+                background: white;
+                padding: 1.5rem;
+                border-radius: 10px;
+                box-shadow: var(--shadow);
+                transition: all 0.3s ease;
+                text-align: center;
+            }
+
+            .feature-card:hover {
+                transform: translateY(-5px);
+                box-shadow: var(--shadow-lg);
+            }
+
+            .feature-icon {
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
+                color: var(--primary-color);
+            }
+
+            .feature-card h3 {
+                font-size: 1.25rem;
+                margin-bottom: 0.5rem;
+                color: var(--secondary-color);
+            }
+
+            .feature-card p {
+                color: #666;
+                line-height: 1.6;
+            }
+
+            /* Destinations Section */
+            .destinations {
+                padding: 2rem 1rem;
+            }
+
+            .destinations-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .destination-card {
+                position: relative;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: var(--shadow);
+                height: 250px;
+                background-size: cover;
+                background-position: center;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .destination-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+                transition: all 0.3s ease;
+            }
+
+            .destination-card:hover::before {
+                background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+            }
+
+            .destination-card:hover {
+                transform: scale(1.02);
+                box-shadow: var(--shadow-lg);
+            }
+
+            .destination-content {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                padding: 1.5rem;
+                color: var(--text-light);
+                z-index: 1;
+            }
+
+            .destination-content h3 {
+                font-size: 1.5rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .destination-content p {
+                font-size: 0.9rem;
+                opacity: 0.9;
+            }
+
+            /* Footer */
+            footer {
+                background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+                color: var(--text-light);
+                padding: 2rem 1rem;
+                text-align: center;
+            }
+
+            .footer-content {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            .footer-links {
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+                margin-bottom: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .footer-links a {
+                color: var(--text-light);
+                text-decoration: none;
+                transition: opacity 0.3s ease;
+            }
+
+            .footer-links a:hover {
+                opacity: 0.8;
+            }
+
+            .social-icons {
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+                margin: 1rem 0;
+                font-size: 1.5rem;
+            }
+
+            .social-icons a {
+                color: var(--text-light);
+                transition: transform 0.3s ease;
+            }
+
+            .social-icons a:hover {
+                transform: scale(1.2);
+            }
+
+            /* Animations */
+            @keyframes fadeInDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            /* Tablet Styles (min-width: 768px) */
+            @media (min-width: 768px) {
+                .nav-links {
+                    width: auto;
+                    margin-top: 0;
+                }
+
+                .hero h1 {
+                    font-size: 3rem;
+                }
+
+                .hero p {
+                    font-size: 1.25rem;
+                }
+
+                .features-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                .destinations-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                .section-title {
+                    font-size: 2.5rem;
+                }
+            }
+
+            /* Desktop Styles (min-width: 1024px) */
+            @media (min-width: 1024px) {
+                .hero {
+                    min-height: 70vh;
+                    padding: 4rem 2rem;
+                }
+
+                .hero h1 {
+                    font-size: 4rem;
+                }
+
+                .features-grid {
+                    grid-template-columns: repeat(4, 1fr);
+                }
+
+                .destinations-grid {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+
+                .destination-card {
+                    height: 300px;
+                }
+
+                .features,
+                .destinations {
+                    padding: 4rem 2rem;
+                }
+            }
+
+            /* Accessibility improvements */
+            a:focus,
+            button:focus {
+                outline: 3px solid var(--accent-color);
+                outline-offset: 2px;
+            }
+
+            /* Reduced motion for accessibility */
+            @media (prefers-reduced-motion: reduce) {
+                *,
+                *::before,
+                *::after {
+                    animation-duration: 0.01ms !important;
+                    animation-iteration-count: 1 !important;
+                    transition-duration: 0.01ms !important;
+                }
             }
         </style>
     </head>
     <body>
-        <h1> Welcome to India Tourism</h1>
-        <div id="nav">
-            <a href="home.html">home</a>
-        </div>
-        </a>
-        <div>thank you</div>
-        <p>Booking through zipline.com</p>
-        
+        <!-- Navigation -->
+        <nav>
+            <div class="nav-container">
+                <a href="#" class="logo">
+                    <i class="fas fa-globe-asia"></i>
+                    India Tourism
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#destinations">Destinations</a></li>
+                    <li><a href="#experiences">Experiences</a></li>
+                    <li><a href="#culture">Culture</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Welcome to Incredible India</h1>
+            <p>Experience the vibrant culture, majestic monuments, and diverse landscapes of India. Your journey of a lifetime begins here.</p>
+            <a href="#destinations" class="cta-button">Explore Destinations</a>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features" id="experiences">
+            <div class="container">
+                <h2 class="section-title">Why Choose India?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                        <h3>Rich Heritage</h3>
+                        <p>Explore ancient monuments and UNESCO World Heritage sites</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        <h3>Diverse Landscapes</h3>
+                        <p>From Himalayas to beaches, deserts to rainforests</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3>Culinary Delights</h3>
+                        <p>Savor authentic Indian cuisine from every region</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-om"></i>
+                        </div>
+                        <h3>Spiritual Journey</h3>
+                        <p>Discover peace and spirituality in ancient temples</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Destinations Section -->
+        <section class="destinations" id="destinations">
+            <div class="container">
+                <h2 class="section-title">Popular Destinations</h2>
+                <div class="destinations-grid">
+                    <div class="destination-card" style="background-image: url('https://images.unsplash.com/photo-1564507592333-c60657eea523?w=800');">
+                        <div class="destination-content">
+                            <h3>Taj Mahal</h3>
+                            <p>Symbol of eternal love in Agra</p>
+                        </div>
+                    </div>
+                    <div class="destination-card" style="background-image: url('https://images.unsplash.com/photo-1609920658906-8223bd289001?w=800');">
+                        <div class="destination-content">
+                            <h3>Kerala Backwaters</h3>
+                            <p>Tranquil waterways and houseboats</p>
+                        </div>
+                    </div>
+                    <div class="destination-card" style="background-image: url('https://images.unsplash.com/photo-1587474260584-136574528ed5?w=800');">
+                        <div class="destination-content">
+                            <h3>Rajasthan</h3>
+                            <p>Land of maharajas and palaces</p>
+                        </div>
+                    </div>
+                    <div class="destination-card" style="background-image: url('https://images.unsplash.com/photo-1506461883276-594a12b11cf3?w=800');">
+                        <div class="destination-content">
+                            <h3>Himalayas</h3>
+                            <p>Majestic mountains and spirituality</p>
+                        </div>
+                    </div>
+                    <div class="destination-card" style="background-image: url('https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=800');">
+                        <div class="destination-content">
+                            <h3>Goa Beaches</h3>
+                            <p>Sun, sand, and Portuguese charm</p>
+                        </div>
+                    </div>
+                    <div class="destination-card" style="background-image: url('https://images.unsplash.com/photo-1562979314-bee7453e911c?w=800');">
+                        <div class="destination-content">
+                            <h3>Varanasi</h3>
+                            <p>Ancient spiritual capital on the Ganges</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="contact">
+            <div class="footer-content">
+                <h3>India Tourism</h3>
+                <p>Your gateway to incredible experiences</p>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+                <div class="footer-links">
+                    <a href="#destinations">Destinations</a>
+                    <a href="#experiences">Experiences</a>
+                    <a href="#culture">Culture</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <p style="margin-top: 1rem; opacity: 0.8;">&copy; 2025 India Tourism. All rights reserved.</p>
+                <p style="font-size: 0.9rem; opacity: 0.7;">Book through ZipLine.com</p>
+            </div>
+        </footer>
     </body>
 </html>
