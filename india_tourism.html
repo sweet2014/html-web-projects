@@ -202,6 +202,515 @@
                 padding: 2rem 1rem;
             }
 
+            /* Restaurants Section */
+            .restaurants {
+                padding: 2rem 1rem;
+                background: var(--bg-light);
+            }
+
+            /* Cuisine Categories Section */
+            .cuisine-section {
+                padding: 2rem 1rem;
+            }
+
+            .cuisine-card {
+                background: white;
+                border-radius: 15px;
+                padding: 2rem;
+                margin-bottom: 2rem;
+                box-shadow: var(--shadow-lg);
+                border-left: 5px solid;
+            }
+
+            .cuisine-card.fast-food {
+                border-left-color: #FFC72C;
+                background: linear-gradient(135deg, #fff 0%, #fff9e6 100%);
+            }
+
+            .cuisine-card.indo-chinese {
+                border-left-color: #D32F2F;
+                background: linear-gradient(135deg, #fff 0%, #ffebee 100%);
+            }
+
+            .cuisine-card.south-indian {
+                border-left-color: #4CAF50;
+                background: linear-gradient(135deg, #fff 0%, #e8f5e9 100%);
+            }
+
+            .cuisine-card.north-indian {
+                border-left-color: var(--primary-color);
+                background: linear-gradient(135deg, #fff 0%, #fff3e0 100%);
+            }
+
+            .cuisine-header {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                margin-bottom: 1.5rem;
+                flex-wrap: wrap;
+            }
+
+            .cuisine-icon {
+                font-size: 2.5rem;
+            }
+
+            .cuisine-title {
+                font-size: 1.75rem;
+                font-family: 'Playfair Display', serif;
+                color: var(--text-dark);
+            }
+
+            .cuisine-description {
+                color: #666;
+                margin-bottom: 1.5rem;
+                line-height: 1.8;
+            }
+
+            .restaurant-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .restaurant-item {
+                background: white;
+                padding: 1.25rem;
+                border-radius: 10px;
+                box-shadow: var(--shadow);
+                transition: all 0.3s ease;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .restaurant-item:hover {
+                transform: translateX(10px);
+                box-shadow: var(--shadow-lg);
+            }
+
+            .restaurant-logo {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.5rem;
+                flex-shrink: 0;
+            }
+
+            .fast-food .restaurant-logo {
+                background: linear-gradient(135deg, #FFC72C, #FF9800);
+            }
+
+            .indo-chinese .restaurant-logo {
+                background: linear-gradient(135deg, #D32F2F, #C62828);
+            }
+
+            .south-indian .restaurant-logo {
+                background: linear-gradient(135deg, #4CAF50, #388E3C);
+            }
+
+            .north-indian .restaurant-logo {
+                background: linear-gradient(135deg, var(--primary-color), #FF5722);
+            }
+
+            .restaurant-info h4 {
+                color: var(--text-dark);
+                font-size: 1.1rem;
+                margin-bottom: 0.25rem;
+            }
+
+            .restaurant-info p {
+                color: #666;
+                font-size: 0.9rem;
+            }
+
+            .popular-dishes {
+                margin-top: 1rem;
+                padding: 1rem;
+                background: rgba(255, 255, 255, 0.7);
+                border-radius: 8px;
+            }
+
+            .popular-dishes h5 {
+                color: var(--secondary-color);
+                margin-bottom: 0.5rem;
+                font-size: 1rem;
+            }
+
+            .dish-tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+
+            .dish-tag {
+                background: white;
+                padding: 0.4rem 0.8rem;
+                border-radius: 20px;
+                font-size: 0.85rem;
+                color: var(--text-dark);
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+
+            /* McDonald's Menu Modal */
+            .menu-modal {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.8);
+                z-index: 2000;
+                overflow-y: auto;
+            }
+
+            .menu-modal.active {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 2rem 1rem;
+            }
+
+            .menu-content {
+                background: white;
+                border-radius: 15px;
+                max-width: 1000px;
+                width: 100%;
+                max-height: 90vh;
+                overflow-y: auto;
+                position: relative;
+            }
+
+            .menu-header {
+                background: linear-gradient(135deg, #FFC72C, #DA291C);
+                color: white;
+                padding: 2rem;
+                border-radius: 15px 15px 0 0;
+                position: sticky;
+                top: 0;
+                z-index: 10;
+            }
+
+            .menu-header h2 {
+                margin: 0;
+                font-size: 2rem;
+                font-family: 'Playfair Display', serif;
+            }
+
+            .menu-close {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                background: white;
+                color: #DA291C;
+                border: none;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                font-size: 1.5rem;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease;
+            }
+
+            .menu-close:hover {
+                transform: rotate(90deg);
+                background: #DA291C;
+                color: white;
+            }
+
+            .menu-body {
+                padding: 2rem;
+            }
+
+            .menu-category {
+                margin-bottom: 2rem;
+            }
+
+            .menu-category h3 {
+                font-size: 1.5rem;
+                color: #DA291C;
+                margin-bottom: 1rem;
+                border-bottom: 2px solid #FFC72C;
+                padding-bottom: 0.5rem;
+            }
+
+            .menu-items {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .menu-item {
+                display: flex;
+                gap: 1rem;
+                background: #f8f9fa;
+                padding: 1rem;
+                border-radius: 10px;
+                transition: all 0.3s ease;
+            }
+
+            .menu-item:hover {
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                transform: translateY(-2px);
+            }
+
+            .menu-item-image {
+                width: 100px;
+                height: 100px;
+                border-radius: 10px;
+                background: linear-gradient(135deg, #FFC72C, #FF9800);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 2.5rem;
+                flex-shrink: 0;
+            }
+
+            .menu-item-details {
+                flex: 1;
+            }
+
+            .menu-item-details h4 {
+                margin: 0 0 0.5rem 0;
+                color: var(--text-dark);
+                font-size: 1.1rem;
+            }
+
+            .menu-item-details p {
+                margin: 0 0 0.5rem 0;
+                color: #666;
+                font-size: 0.9rem;
+            }
+
+            .menu-item-price {
+                font-size: 1.2rem;
+                font-weight: 700;
+                color: #27ae60;
+                margin-bottom: 0.5rem;
+            }
+
+            .menu-item-actions {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .quantity-control {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .quantity-btn {
+                width: 30px;
+                height: 30px;
+                border: none;
+                background: #DA291C;
+                color: white;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 1.2rem;
+                transition: all 0.3s ease;
+            }
+
+            .quantity-btn:hover {
+                background: #b8231a;
+                transform: scale(1.1);
+            }
+
+            .quantity-display {
+                width: 40px;
+                text-align: center;
+                font-weight: 600;
+            }
+
+            .add-to-cart-btn {
+                background: #27ae60;
+                color: white;
+                border: none;
+                padding: 0.5rem 1.5rem;
+                border-radius: 25px;
+                cursor: pointer;
+                font-weight: 600;
+                transition: all 0.3s ease;
+            }
+
+            .add-to-cart-btn:hover {
+                background: #229954;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+
+            /* Cart Modal */
+            .cart-modal {
+                display: none;
+                position: fixed;
+                top: 0;
+                right: -400px;
+                width: 400px;
+                height: 100%;
+                background: white;
+                box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+                z-index: 3000;
+                transition: right 0.3s ease;
+            }
+
+            .cart-modal.active {
+                display: block;
+                right: 0;
+            }
+
+            .cart-header {
+                background: linear-gradient(135deg, #FFC72C, #DA291C);
+                color: white;
+                padding: 1.5rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .cart-header h3 {
+                margin: 0;
+                font-size: 1.5rem;
+            }
+
+            .cart-body {
+                padding: 1rem;
+                max-height: calc(100vh - 200px);
+                overflow-y: auto;
+            }
+
+            .cart-item {
+                display: flex;
+                gap: 1rem;
+                padding: 1rem;
+                border-bottom: 1px solid #eee;
+            }
+
+            .cart-item-info {
+                flex: 1;
+            }
+
+            .cart-item-info h4 {
+                margin: 0 0 0.5rem 0;
+                font-size: 1rem;
+            }
+
+            .cart-item-price {
+                color: #27ae60;
+                font-weight: 600;
+            }
+
+            .cart-footer {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 1rem;
+                border-top: 2px solid #eee;
+            }
+
+            .cart-total {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 1rem;
+                font-size: 1.2rem;
+                font-weight: 700;
+            }
+
+            .checkout-btn {
+                width: 100%;
+                background: #27ae60;
+                color: white;
+                border: none;
+                padding: 1rem;
+                border-radius: 10px;
+                font-size: 1.1rem;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .checkout-btn:hover {
+                background: #229954;
+                transform: translateY(-2px);
+            }
+
+            .cart-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 2999;
+            }
+
+            .cart-overlay.active {
+                display: block;
+            }
+
+            .view-cart-btn {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: #DA291C;
+                color: white;
+                border: none;
+                padding: 1rem 1.5rem;
+                border-radius: 50px;
+                font-size: 1rem;
+                font-weight: 600;
+                cursor: pointer;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+                z-index: 1500;
+                display: none;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .view-cart-btn.active {
+                display: flex;
+            }
+
+            .cart-badge {
+                background: white;
+                color: #DA291C;
+                border-radius: 50%;
+                width: 24px;
+                height: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0.9rem;
+                font-weight: 700;
+            }
+
+            @media (min-width: 768px) {
+                .menu-items {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            @media (max-width: 400px) {
+                .cart-modal {
+                    width: 100%;
+                    right: -100%;
+                }
+
+                .cart-modal.active {
+                    right: 0;
+                }
+            }
+
             .destinations-grid {
                 display: grid;
                 grid-template-columns: 1fr;
@@ -357,6 +866,10 @@
                 .section-title {
                     font-size: 2.5rem;
                 }
+
+                .restaurant-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
             }
 
             /* Desktop Styles (min-width: 1024px) */
@@ -450,7 +963,7 @@
                         <h3>Diverse Landscapes</h3>
                         <p>From Himalayas to beaches, deserts to rainforests</p>
                     </div>
-                    <div class="feature-card">
+                    <div class="feature-card" onclick="document.getElementById('restaurants').scrollIntoView({behavior: 'smooth'})" style="cursor: pointer;">
                         <div class="feature-icon">
                             <i class="fas fa-utensils"></i>
                         </div>
@@ -512,6 +1025,519 @@
                 </div>
             </div>
         </section>
+
+        <!-- Cuisine Categories Section -->
+        <section class="cuisine-section" id="restaurants">
+            <div class="container">
+                <h2 class="section-title">Culinary Delights - Explore Indian Cuisine</h2>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; color: #666;">
+                    From international fast food to authentic regional flavors - experience the diverse culinary landscape of India
+                </p>
+
+                <!-- Fast Food Section -->
+                <div class="cuisine-card fast-food">
+                    <div class="cuisine-header">
+                        <span class="cuisine-icon">🍔</span>
+                        <h3 class="cuisine-title">International Fast Food</h3>
+                    </div>
+                    <p class="cuisine-description">
+                        Global brands with a local twist - enjoy your favorite fast food with unique Indian flavors and options
+                    </p>
+                    <div class="restaurant-grid">
+                        <div class="restaurant-item" onclick="openMcDonaldsMenu()" style="cursor: pointer;">
+                            <div class="restaurant-logo">🍟</div>
+                            <div class="restaurant-info">
+                                <h4>McDonald's India</h4>
+                                <p>McCurry Pan, McAloo Tikki, Maharaja Mac - Click to view menu</p>
+                            </div>
+                        </div>
+                        <div class="restaurant-item">
+                            <div class="restaurant-logo">🍗</div>
+                            <div class="restaurant-info">
+                                <h4>KFC (Kentucky Fried Chicken)</h4>
+                                <p>Chicken Zinger, Popcorn Chicken, Hot Wings</p>
+                            </div>
+                        </div>
+                        <div class="restaurant-item">
+                            <div class="restaurant-logo">🍕</div>
+                            <div class="restaurant-info">
+                                <h4>Domino's Pizza</h4>
+                                <p>Paneer Tikka Pizza, Peppy Paneer, Veg Extravaganza</p>
+                            </div>
+                        </div>
+                        <div class="restaurant-item">
+                            <div class="restaurant-logo">🌮</div>
+                            <div class="restaurant-info">
+                                <h4>Subway India</h4>
+                                <p>Paneer Tikka Sub, Chatpata Aloo, Corn & Peas</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popular-dishes">
+                        <h5>Popular Items</h5>
+                        <div class="dish-tags">
+                            <span class="dish-tag">McAloo Tikki Burger</span>
+                            <span class="dish-tag">Chicken Zinger</span>
+                            <span class="dish-tag">Paneer Pizza</span>
+                            <span class="dish-tag">Veg Whopper</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Indo-Chinese Section -->
+                <div class="cuisine-card indo-chinese">
+                    <div class="cuisine-header">
+                        <span class="cuisine-icon">🥡</span>
+                        <h3 class="cuisine-title">Indo-Chinese Cuisine</h3>
+                    </div>
+                    <p class="cuisine-description">
+                        A unique fusion of Indian and Chinese flavors - spicy, tangy, and utterly delicious street food favorites
+                    </p>
+                    <div class="restaurant-grid">
+                        <div class="restaurant-item">
+                            <div class="restaurant-logo">🍜</div>
+                            <div class="restaurant-info">
+                                <h4>Mainland China</h4>
+                                <p>Premium Indo-Chinese dining experience</p>
+                            </div>
+                        </div>
+                        <div class="restaurant-item">
+                            <div class="restaurant-logo">🥢</div>
+                            <div class="restaurant-info">
+                                <h4>Bercos</h4>
+                                <p>Popular chain for authentic Indo-Chinese</p>
+                            </div>
+                        </div>
+                        <div class="restaurant-item">
+                            <div class="restaurant-logo">🍛</div>
+                            <div class="restaurant-info">
+                                <h4>Yo! China</h4>
+                                <p>Quick service Indo-Chinese food</p>
+                            </div>
+                        </div>
+                        <div class="restaurant-item">
+                            <div class="restaurant-logo">🥟</div>
+                            <div class="restaurant-info">
+                                <h4>Chowman</h4>
+                                <p>Eastern India's favorite Chinese chain</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popular-dishes">
+                        <h5>Must-Try Dishes</h5>
+                        <div class="dish-tags">
+                            <span class="dish-tag">Manchurian</span>
+                            <span class="dish-tag">Hakka Noodles</span>
+                            <span class="dish-tag">Chilli Chicken</span>
+                            <span class="dish-tag">Fried Rice</span>
+                            <span class="dish-tag">Momos</span>
+                            <span class="dish-tag">Spring Rolls</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- South Indian Section -->
+                <div class="cuisine-card south-indian">
+                    <div class="cuisine-header">
+                        <span class="cuisine-icon">🥥</span>
+                        <h3 class="cuisine-title">South Indian Cuisine</h3>
+                    </div>
+                    <p class="cuisine-description">
+                        Healthy, flavorful, and diverse - from crispy dosas to fluffy idlis, experience the authentic taste of South India
+                    </p>
+                    <div class="restaurant-grid">
+                        <div class="restaurant-item">
+                            <div class="restaurant-logo">🍛</div>
+                            <div class="restaurant-info">
+                                <h4>Saravana Bhavan</h4>
+                                <p>World-famous vegetarian South Indian chain</p>
+                            </div>
+                        </div>
+                        <div class="restaurant-item">
+                            <div class="restaurant-logo">🥞</div>
+                            <div class="restaurant-info">
+                                <h4>MTR (Mavalli Tiffin Rooms)</h4>
+                                <p>Legendary Bangalore breakfast institution</p>
+                            </div>
+                        </div>
+                        <div class="restaurant-item">
+                            <div class="restaurant-logo">🌶️</div>
+                            <div class="restaurant-info">
+                                <h4>Murugan Idli Shop</h4>
+                                <p>Soft idlis and authentic filter coffee</p>
+                            </div>
+                        </div>
+                        <div class="restaurant-item">
+                            <div class="restaurant-logo">🍵</div>
+                            <div class="restaurant-info">
+                                <h4>Café Madras</h4>
+                                <p>Traditional South Indian breakfast spot</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popular-dishes">
+                        <h5>Signature Dishes</h5>
+                        <div class="dish-tags">
+                            <span class="dish-tag">Masala Dosa</span>
+                            <span class="dish-tag">Idli Sambar</span>
+                            <span class="dish-tag">Uttapam</span>
+                            <span class="dish-tag">Vada</span>
+                            <span class="dish-tag">Pongal</span>
+                            <span class="dish-tag">Filter Coffee</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- North Indian Section -->
+                <div class="cuisine-card north-indian">
+                    <div class="cuisine-header">
+                        <span class="cuisine-icon">🍛</span>
+                        <h3 class="cuisine-title">North Indian Cuisine</h3>
+                    </div>
+                    <p class="cuisine-description">
+                        Rich, aromatic, and indulgent - savor the royal flavors of North India with buttery curries, tandoori delights, and more
+                    </p>
+                    <div class="restaurant-grid">
+                        <div class="restaurant-item">
+                            <div class="restaurant-logo">🔥</div>
+                            <div class="restaurant-info">
+                                <h4>Bukhara - ITC Maurya</h4>
+                                <p>World-renowned for Dal Bukhara and kebabs</p>
+                            </div>
+                        </div>
+                        <div class="restaurant-item">
+                            <div class="restaurant-logo">👑</div>
+                            <div class="restaurant-info">
+                                <h4>Dum Pukht</h4>
+                                <p>Royal Awadhi cuisine and slow-cooked delicacies</p>
+                            </div>
+                        </div>
+                        <div class="restaurant-item">
+                            <div class="restaurant-logo">🥘</div>
+                            <div class="restaurant-info">
+                                <h4>Moti Mahal</h4>
+                                <p>Birthplace of Butter Chicken and Dal Makhani</p>
+                            </div>
+                        </div>
+                        <div class="restaurant-item">
+                            <div class="restaurant-logo">🍗</div>
+                            <div class="restaurant-info">
+                                <h4>Karim's</h4>
+                                <p>Old Delhi's iconic Mughlai food since 1913</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popular-dishes">
+                        <h5>Classic Dishes</h5>
+                        <div class="dish-tags">
+                            <span class="dish-tag">Butter Chicken</span>
+                            <span class="dish-tag">Dal Makhani</span>
+                            <span class="dish-tag">Tandoori Chicken</span>
+                            <span class="dish-tag">Naan</span>
+                            <span class="dish-tag">Paneer Tikka</span>
+                            <span class="dish-tag">Biryani</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- McDonald's Menu Modal -->
+        <div class="menu-modal" id="mcdonaldsMenu">
+            <div class="menu-content">
+                <div class="menu-header">
+                    <h2>🍔 McDonald's India Menu</h2>
+                    <button class="menu-close" onclick="closeMcDonaldsMenu()">×</button>
+                </div>
+                <div class="menu-body" id="menuBody">
+                    <!-- Menu items will be dynamically loaded -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Shopping Cart Modal -->
+        <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+        <div class="cart-modal" id="cartModal">
+            <div class="cart-header">
+                <h3>🛒 Your Cart</h3>
+                <button class="menu-close" onclick="closeCart()">×</button>
+            </div>
+            <div class="cart-body" id="cartBody">
+                <!-- Cart items will be dynamically loaded -->
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cartTotal">₹0</span>
+                </div>
+                <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+            </div>
+        </div>
+
+        <!-- View Cart Button -->
+        <button class="view-cart-btn" id="viewCartBtn" onclick="toggleCart()">
+            🛒 Cart <span class="cart-badge" id="cartBadge">0</span>
+        </button>
+
+        <script>
+            // McDonald's Menu Data
+            const mcdonaldsMenu = {
+                burgers: [
+                    { id: 1, name: 'McAloo Tikki Burger', price: 49, icon: '🍔', description: 'Crispy potato patty with special sauce', category: 'burgers' },
+                    { id: 2, name: 'Maharaja Mac', price: 199, icon: '🍔', description: 'Double chicken patties with special sauce', category: 'burgers' },
+                    { id: 3, name: 'McCurry Pan', price: 129, icon: '🍔', description: 'Grilled chicken in curry sauce', category: 'burgers' },
+                    { id: 4, name: 'McSpicy Chicken Burger', price: 159, icon: '🍔', description: 'Spicy fried chicken patty', category: 'burgers' },
+                    { id: 5, name: 'McVeggie Burger', price: 89, icon: '🍔', description: 'Veggie patty with mayo', category: 'burgers' },
+                ],
+                sides: [
+                    { id: 6, name: 'French Fries (Regular)', price: 79, icon: '🍟', description: 'Crispy golden fries', category: 'sides' },
+                    { id: 7, name: 'French Fries (Large)', price: 109, icon: '🍟', description: 'Large crispy golden fries', category: 'sides' },
+                    { id: 8, name: 'Chicken McNuggets (6 pcs)', price: 139, icon: '🍗', description: 'Tender chicken nuggets', category: 'sides' },
+                    { id: 9, name: 'Chicken McNuggets (9 pcs)', price: 199, icon: '🍗', description: '9 tender chicken nuggets', category: 'sides' },
+                    { id: 10, name: 'Wedges', price: 99, icon: '🥔', description: 'Crispy potato wedges', category: 'sides' },
+                ],
+                beverages: [
+                    { id: 11, name: 'Coca-Cola (Regular)', price: 69, icon: '🥤', description: 'Refreshing Coca-Cola', category: 'beverages' },
+                    { id: 12, name: 'Coca-Cola (Large)', price: 99, icon: '🥤', description: 'Large Coca-Cola', category: 'beverages' },
+                    { id: 13, name: 'McCafe Coffee', price: 89, icon: '☕', description: 'Premium coffee', category: 'beverages' },
+                    { id: 14, name: 'Mango Smoothie', price: 119, icon: '🥭', description: 'Fresh mango smoothie', category: 'beverages' },
+                    { id: 15, name: 'Chocolate Shake', price: 129, icon: '🍫', description: 'Creamy chocolate shake', category: 'beverages' },
+                ]
+            };
+
+            // Shopping cart
+            let cart = [];
+            let quantities = {};
+
+            // Initialize quantities
+            Object.values(mcdonaldsMenu).flat().forEach(item => {
+                quantities[item.id] = 1;
+            });
+
+            function openMcDonaldsMenu() {
+                const modal = document.getElementById('mcdonaldsMenu');
+                modal.classList.add('active');
+                renderMenu();
+            }
+
+            function closeMcDonaldsMenu() {
+                const modal = document.getElementById('mcdonaldsMenu');
+                modal.classList.remove('active');
+            }
+
+            function renderMenu() {
+                const menuBody = document.getElementById('menuBody');
+                let html = '';
+
+                // Burgers
+                html += '<div class="menu-category"><h3>🍔 Burgers</h3><div class="menu-items">';
+                mcdonaldsMenu.burgers.forEach(item => {
+                    html += createMenuItem(item);
+                });
+                html += '</div></div>';
+
+                // Sides
+                html += '<div class="menu-category"><h3>🍟 Sides & Snacks</h3><div class="menu-items">';
+                mcdonaldsMenu.sides.forEach(item => {
+                    html += createMenuItem(item);
+                });
+                html += '</div></div>';
+
+                // Beverages
+                html += '<div class="menu-category"><h3>🥤 Beverages</h3><div class="menu-items">';
+                mcdonaldsMenu.beverages.forEach(item => {
+                    html += createMenuItem(item);
+                });
+                html += '</div></div>';
+
+                menuBody.innerHTML = html;
+            }
+
+            function createMenuItem(item) {
+                return `
+                    <div class="menu-item">
+                        <div class="menu-item-image">${item.icon}</div>
+                        <div class="menu-item-details">
+                            <h4>${item.name}</h4>
+                            <p>${item.description}</p>
+                            <div class="menu-item-price">₹${item.price}</div>
+                            <div class="menu-item-actions">
+                                <div class="quantity-control">
+                                    <button class="quantity-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
+                                    <span class="quantity-display" id="qty-${item.id}">${quantities[item.id]}</span>
+                                    <button class="quantity-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
+                                </div>
+                                <button class="add-to-cart-btn" onclick="addToCart(${item.id})">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            function updateQuantity(itemId, change) {
+                quantities[itemId] = Math.max(1, quantities[itemId] + change);
+                const qtyElement = document.getElementById(`qty-${itemId}`);
+                if (qtyElement) {
+                    qtyElement.textContent = quantities[itemId];
+                }
+            }
+
+            function addToCart(itemId) {
+                const allItems = Object.values(mcdonaldsMenu).flat();
+                const item = allItems.find(i => i.id === itemId);
+                if (item) {
+                    const quantity = quantities[itemId];
+                    const existingItem = cart.find(c => c.id === itemId);
+
+                    if (existingItem) {
+                        existingItem.quantity += quantity;
+                    } else {
+                        cart.push({ ...item, quantity });
+                    }
+
+                    updateCartDisplay();
+                    showNotification(`Added ${quantity} × ${item.name} to cart!`);
+                }
+            }
+
+            function updateCartDisplay() {
+                const cartBadge = document.getElementById('cartBadge');
+                const viewCartBtn = document.getElementById('viewCartBtn');
+                const cartBody = document.getElementById('cartBody');
+                const cartTotal = document.getElementById('cartTotal');
+
+                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+                cartBadge.textContent = totalItems;
+
+                if (totalItems > 0) {
+                    viewCartBtn.classList.add('active');
+                } else {
+                    viewCartBtn.classList.remove('active');
+                }
+
+                // Render cart items
+                if (cart.length === 0) {
+                    cartBody.innerHTML = '<p style="text-align: center; padding: 2rem; color: #666;">Your cart is empty</p>';
+                } else {
+                    cartBody.innerHTML = cart.map(item => `
+                        <div class="cart-item">
+                            <div style="font-size: 2rem;">${item.icon}</div>
+                            <div class="cart-item-info">
+                                <h4>${item.name}</h4>
+                                <div class="cart-item-price">₹${item.price} × ${item.quantity}</div>
+                                <div style="margin-top: 0.5rem;">
+                                    <button class="quantity-btn" onclick="updateCartQuantity(${item.id}, -1)" style="width: 25px; height: 25px; font-size: 1rem;">-</button>
+                                    <span style="margin: 0 0.5rem;">${item.quantity}</span>
+                                    <button class="quantity-btn" onclick="updateCartQuantity(${item.id}, 1)" style="width: 25px; height: 25px; font-size: 1rem;">+</button>
+                                    <button onclick="removeFromCart(${item.id})" style="margin-left: 1rem; padding: 0.25rem 0.75rem; background: #e74c3c; color: white; border: none; border-radius: 5px; cursor: pointer;">Remove</button>
+                                </div>
+                            </div>
+                            <div style="font-weight: 700; color: #27ae60;">₹${item.price * item.quantity}</div>
+                        </div>
+                    `).join('');
+                }
+
+                cartTotal.textContent = `₹${totalPrice}`;
+            }
+
+            function updateCartQuantity(itemId, change) {
+                const item = cart.find(c => c.id === itemId);
+                if (item) {
+                    item.quantity = Math.max(1, item.quantity + change);
+                    updateCartDisplay();
+                }
+            }
+
+            function removeFromCart(itemId) {
+                cart = cart.filter(item => item.id !== itemId);
+                updateCartDisplay();
+            }
+
+            function toggleCart() {
+                const cartModal = document.getElementById('cartModal');
+                const cartOverlay = document.getElementById('cartOverlay');
+
+                cartModal.classList.toggle('active');
+                cartOverlay.classList.toggle('active');
+            }
+
+            function closeCart() {
+                const cartModal = document.getElementById('cartModal');
+                const cartOverlay = document.getElementById('cartOverlay');
+
+                cartModal.classList.remove('active');
+                cartOverlay.classList.remove('active');
+            }
+
+            function checkout() {
+                if (cart.length === 0) {
+                    alert('Your cart is empty!');
+                    return;
+                }
+
+                const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                const itemsList = cart.map(item => `${item.quantity}× ${item.name}`).join('\n');
+
+                alert(`🎉 Order Confirmed!\n\nItems:\n${itemsList}\n\nTotal: ₹${totalPrice}\n\nThank you for ordering from McDonald's India!\nYour order will be ready in 15-20 minutes.`);
+
+                // Clear cart
+                cart = [];
+                updateCartDisplay();
+                closeCart();
+            }
+
+            function showNotification(message) {
+                const notification = document.createElement('div');
+                notification.textContent = message;
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 100px;
+                    right: 20px;
+                    background: #27ae60;
+                    color: white;
+                    padding: 1rem 1.5rem;
+                    border-radius: 10px;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+                    z-index: 4000;
+                    animation: slideIn 0.3s ease;
+                `;
+
+                document.body.appendChild(notification);
+
+                setTimeout(() => {
+                    notification.style.animation = 'slideOut 0.3s ease';
+                    setTimeout(() => notification.remove(), 300);
+                }, 2000);
+            }
+
+            // Add CSS animations
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideIn {
+                    from {
+                        transform: translateX(400px);
+                        opacity: 0;
+                    }
+                    to {
+                        transform: translateX(0);
+                        opacity: 1;
+                    }
+                }
+                @keyframes slideOut {
+                    from {
+                        transform: translateX(0);
+                        opacity: 1;
+                    }
+                    to {
+                        transform: translateX(400px);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        </script>
 
         <!-- Footer -->
         <footer id="contact">
